@@ -1,0 +1,166 @@
+* {
+    margin: 0; /* Đặt lề ngoài của phần tử thành 0. */
+    padding: 0; /* Đặt lề bên trong của phần tử thành 0. */
+    box-sizing: border-box; /* Sử dụng box-sizing để tính toán kích thước của phần tử bao gồm cả padding và border. */
+    outline: 0; /* Loại bỏ viền xung quanh phần tử khi được focus. */
+    transition: all 0.5s ease; /* Thời gian chuyển đổi cho tất cả thuộc tính */
+}
+
+/* Body styles */
+body {
+    font-family: sans-serif; /* Sử dụng font chữ sans-serif cho toàn bộ trang */
+	  background: linear-gradient(to bottom right, rgba(79, 51, 176, 1), rgba(210, 53, 166, 1)); /* Gradient background */
+}
+
+/* Hyperlink styles */
+a {
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    color: #fff; /* Màu chữ cho liên kết */
+}
+
+/* Container styles */
+.container {
+    height: 100vh; /* Chiều cao của container bằng chiều cao của viewport */
+    width: 100vw; /* Chiều rộng của container bằng chiều rộng của viewport */
+    display: grid; /* Sử dụng grid layout */
+    place-items: center; /* Căn giữa nội dung trong container */
+}
+
+/* Calculator styles */
+.calculator {
+    position: relative; /* Vị trí tương đối */
+    width: auto; /* Chiều rộng tự động */
+    height: auto; /* Chiều cao tự động */
+    padding: 20px; /* Khoảng cách giữa nội dung và viền */
+    border-radius: 10px; /* Bo tròn viền */
+    box-shadow: 0 0 30px #000; /* Hiệu ứng bóng đổ */
+}
+
+/* Theme toggler styles */
+.theme-toggler {
+    position: absolute; /* Vị trí tuyệt đối */
+    top: 30px; /* Khoảng cách từ trên xuống */
+    right: 30px; /* Khoảng cách từ phải sang */
+    color: white; /* Màu chữ */
+    cursor: pointer; /* Con trỏ chuột thành dấu tay */
+    z-index: 1; /* Chỉ số z để xác định thứ tự hiển thị */
+}
+
+.theme-toggler.active {
+    color: #333; /* Màu chữ khi nút được kích hoạt */
+}
+
+.theme-toggler.active::before {
+    background-color: #fff; /* Màu nền của biểu tượng khi nút được kích hoạt */
+}
+
+.theme-toggler::before {
+    content: ''; /* Tạo một phần tử giả để hiển thị biểu tượng */
+    position: absolute; /* Vị trí tuyệt đối */
+    top: 50%; /* Đặt ở giữa theo chiều dọc */
+    width: 30px; /* Chiều rộng của biểu tượng */
+    height: 30px; /* Chiều cao của biểu tượng */
+    border-radius: 50%; /* Bo tròn biểu tượng */
+    background-color: #333; /* Màu nền của biểu tượng */
+    transform: translate(-50%, -50%); /* Dịch chuyển biểu tượng để căn giữa */
+    z-index: -1; /* Chỉ số z để xác định thứ tự hiển thị */
+}
+/* Kiểu dáng cho khu vực hiển thị */
+#display {
+    margin: 0 10px; /* Lề xung quanh khu vực hiển thị */
+    height: 150px; /* Chiều cao của khu vực hiển thị */
+    width: auto; /* Chiều rộng tự động điều chỉnh theo nội dung */
+    max-width: 270px; /* Chiều rộng tối đa cho khu vực hiển thị */
+    display: flex; /* Sử dụng flexbox để căn chỉnh */
+    align-items: flex-end; /* Căn chỉnh nội dung xuống dưới cùng */
+    justify-content: flex-end; /* Căn chỉnh nội dung sang phải */
+    font-size: 30px; /* Kích thước font chữ */
+    margin-bottom: 20px; /* Lề dưới của khu vực hiển thị */
+    overflow-x: scroll; /* Thêm thanh cuộn ngang nếu nội dung tràn ra */
+}
+
+/* Kiểu dáng cho thanh cuộn trong khu vực hiển thị */
+#display::-webkit-scrollbar {
+    display: block; /* Hiển thị thanh cuộn */
+    height: 3px; /* Đặt chiều cao của thanh cuộn */
+}
+
+/* Kiểu dáng cho các nút */
+button {
+    height: 60px; /* Chiều cao của nút */
+    width: 60px; /* Chiều rộng của nút */
+    border: 0; /* Loại bỏ viền */
+    border-radius: 30px; /* Làm tròn góc của nút */
+    margin: 5px; /* Lề xung quanh nút */
+    font-size: 20px; /* Kích thước font chữ của nút */
+    cursor: pointer; /* Thay đổi con trỏ chuột khi di chuyển lên nút */
+    transition: all 200ms ease; /* Chuyển đổi mượt mà cho hiệu ứng của nút */
+}
+
+/* Hiệu ứng khi di chuột lên nút */
+button:hover {
+    transform: scale(1.1); /* Phóng to nút một chút khi di chuột lên */
+}
+
+/* Kiểu dáng cho nút bằng */
+button#equal {
+    height: 130px; /* Chiều cao lớn hơn cho nút bằng */
+}
+
+/* Light Theme */
+.calculator {
+    background-color: #fff; /* Màu nền trắng cho chủ đề sáng */
+}
+
+.calculator #display {
+    color: #0a1e23; /* Màu chữ tối cho chủ đề sáng */
+}
+
+.calculator button#clear {
+    background-color: #ffd5d8; /* Màu nền hồng nhạt cho nút xóa */
+    color: #fc4552; /* Màu chữ hồng đậm cho nút xóa */
+}
+
+.calculator button.btn-number {
+    background-color: #c3eaff; /* Màu nền xanh nhạt cho các nút số */
+    color: #000; /* Màu chữ đen cho các nút số */
+}
+
+.calculator button.btn-operator {
+    background-color: #ffd0fd; /* Màu nền tím nhạt cho các nút phép toán */
+    color: #f967f3; /* Màu chữ tím đậm cho các nút phép toán */
+}
+
+.calculator button.btn-equal {
+    background-color: #adf9e7; /* Màu nền xanh lá nhạt cho nút bằng */
+    color: #000; /* Màu chữ đen cho nút bằng */
+}
+
+/* Dark Theme */
+.calculator.dark {
+    background-color: #071115; /* Màu nền xanh đậm cho chủ đề tối */
+}
+
+.calculator.dark #display {
+    color: #f8fafd; /* Màu chữ sáng cho chủ đề tối */
+}
+
+.calculator.dark button#clear {
+    background-color: #2d191e; /* Màu nền đỏ đậm cho nút xóa */
+    color: #bd3740; /* Màu chữ đỏ nhạt cho nút xóa */
+}
+
+.calculator.dark button.btn-number {
+    background-color: #1b2f38; /* Màu nền xanh đậm cho các nút số */
+    color: #f8fafb; /* Màu chữ sáng cho các nút số */
+}
+
+.calculator.dark button.btn-operator {
+    background-color: #2e1f39; /* Màu nền tím đậm cho các nút phép toán */
+    color: #aa00a4; /* Màu chữ tím sáng cho các nút phép toán */
+}
+
+.calculator.dark button.btn-equal {
+    background-color: #223323; /* Màu nền xanh lá đậm cho nút bằng */
+    color: #ffffff; /* Màu chữ trắng cho nút bằng */
+}
